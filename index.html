@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101b2d">
+  <title>Caixa | Cantina Escolar</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#" aria-label="Cantina, início">
+        <span class="brand-mark">C</span>
+        <span>CANTINA <small>PAINEL DE ATENDIMENTO</small></span>
+      </a>
+      <span class="status"><span class="status-dot"></span><span id="status-caixa">Caixa aberto</span></span>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="intro">
+      <p class="eyebrow">CONTROLE DE VENDAS</p>
+      <h1>Caixa da lanchonete</h1>
+      <p>Registre os valores dos lanches e acompanhe o resultado do intervalo.</p>
+    </section>
+
+    <section class="workspace">
+      <article class="panel entrada-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">NOVA VENDA</p>
+            <h2>Registrar lanche</h2>
+          </div>
+          <span class="step-icon">＋</span>
+        </div>
+
+        <form id="form-lanche">
+          <label for="valor-lanche">Valor do lanche</label>
+          <div class="input-wrap">
+            <span class="currency">R$</span>
+            <input id="valor-lanche" type="number" min="0" step="0.01"
+                   inputmode="decimal" placeholder="0,00" autocomplete="off" required>
+          </div>
+          <p class="helper">Informe o valor da venda. Para finalizar, digite 0.</p>
+          <button class="button button-primary" type="submit">Adicionar venda <span>→</span></button>
+        </form>
+
+        <button class="finish-button" type="button" id="encerrar-caixa">
+          Encerrar atendimento
+        </button>
+        <p id="mensagem" class="feedback" role="status" aria-live="polite">
+          Aguardando o primeiro lançamento.
+        </p>
+      </article>
+
+      <section class="summary" aria-label="Resumo do caixa">
+        <article class="metric metric-featured">
+          <div class="metric-top">
+            <span>Total arrecadado</span>
+            <span class="metric-symbol">R$</span>
+          </div>
+          <strong id="total">R$ 0,00</strong>
+          <small>Valor acumulado no atendimento</small>
+        </article>
+
+        <article class="metric">
+          <div class="metric-top">
+            <span>Lanches vendidos</span>
+            <span class="metric-symbol">#</span>
+          </div>
+          <strong id="quantidade">0</strong>
+          <small>Quantidade de vendas registradas</small>
+        </article>
+
+        <article class="metric">
+          <div class="metric-top">
+            <span>Valor médio</span>
+            <span class="metric-symbol">↗</span>
+          </div>
+          <strong id="media">R$ 0,00</strong>
+          <small>Média arrecadada por lanche</small>
+        </article>
+      </section>
+    </section>
+
+    <section class="panel history-panel">
+      <div class="history-heading">
+        <div>
+          <p class="eyebrow">MOVIMENTAÇÃO</p>
+          <h2>Vendas registradas</h2>
+        </div>
+        <span class="counter" id="contador-historico">0 registros</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>LANÇAMENTO</th><th>VALOR</th><th>STATUS</th></tr>
+          </thead>
+          <tbody id="lista-vendas">
+            <tr class="empty-row"><td colspan="3">Nenhuma venda registrada até o momento.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="history-footer">
+        <span>O valor <strong>R$ 0,00</strong> encerra o atendimento.</span>
+        <button type="button" id="reiniciar" class="reset-button">Novo atendimento</button>
+      </div>
+    </section>
+
+    <footer>
+      <span>CANTINA ESCOLAR</span>
+      <span>Controle simples de vendas · Exercício com while</span>
+    </footer>
+  </main>
+</body>
+</html>
